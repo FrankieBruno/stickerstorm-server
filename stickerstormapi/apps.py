@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class StickerstormspiConfig(AppConfig):
+class StickerstormapiConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'stickerstormspi'
+    name = 'stickerstormapi'
