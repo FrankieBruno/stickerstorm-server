@@ -1,0 +1,1 @@
+DROP TABLE stickerstormapi_sticker

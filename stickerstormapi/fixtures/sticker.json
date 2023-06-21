@@ -7,7 +7,9 @@
             "name": "Beast",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118315358844100752/collection1.jpg",
             "finish_type": 1,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
+
         }
     },
     {
@@ -18,7 +20,8 @@
             "name": "Waves",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118316945029202021/collection2.001.jpg",
             "finish_type": 2,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
         }
     },
     {
@@ -29,7 +32,8 @@
             "name": "Cities",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118318573450952714/collection3.001_3.jpg",
             "finish_type": 3,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
         }
     },
     {
@@ -40,7 +44,8 @@
             "name": "Forest",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118319317918961784/collection4.001.jpg",
             "finish_type": 3,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
         }
     },
     {
@@ -51,7 +56,8 @@
             "name": "Forest",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118319317918961784/collection4.001.jpg",
             "finish_type": 3,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
         }
     },
     {
@@ -62,7 +68,8 @@
             "name": "Animal",
             "image": "https://cdn.discordapp.com/attachments/1113627899082321954/1118321472528711680/collection5_jpg.jpg",
             "finish_type": 3,
-            "sticker_size": 1
+            "sticker_size": 1,
+            "price": 5
         }
     }
 ]

@@ -44,3 +44,10 @@ The {{serializer}} class determines how the Python data should be serialized to 
 
 {Adding the URL} So far we’ve set up the view and serializer but not which url to use for the view. We need to add a /gametypes resource to the Django application. If a client sends a GET request to either http://localhost:8000/gametypes or http://localhost:8000/gametypes/1, we want the server to respond with the appropriate method. You will use a built-in class in Django Rest called the DefaultRouter. The DefaultRouter sets up the resource for each method that is present on the view. For now, it will only respond to the GET requests to the game type resource. Add the following import statements at the top of the urls module in the level folder.
 
+ON CLIENT SIDE:
+
+- The StickerForm.js does the following:
+
+It first calls in its other functions at the top. Then we call in through an {export const} that contains {use states} the functions that we want the different sections of code below to use.
+
+in the {use effect} we are allowing our stickerForm to bring in the functions in the stickerManager that contain fetches that directly allow us to reach into the server and grab information from our databases
