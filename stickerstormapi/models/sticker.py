@@ -7,3 +7,4 @@ class Sticker(models.Model):
     image = models.URLField()
     finish_type = models.ForeignKey("Finish", on_delete=models.CASCADE)
     sticker_size = models.ForeignKey("Size", on_delete=models.CASCADE)
+    price = models.IntegerField()

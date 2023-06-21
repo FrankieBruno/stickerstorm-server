@@ -1,8 +1,12 @@
 from django.http import HttpResponseServerError
+from rest_framework.decorators import action
 from rest_framework.viewsets import ViewSet
 from rest_framework.response import Response
 from rest_framework import serializers, status
-from stickerstormapi.models import Sticker
+from stickerstormapi.models import Sticker, Finish, Size
+from django.contrib.auth.models import User 
+
+
 
 
 class StickerView(ViewSet):
@@ -24,9 +28,61 @@ class StickerView(ViewSet):
         Returns:
             Response -- JSON serialized list of stickers
         """
-        sticker = Sticker.objects.all()
-        serializer = StickerSerializer(sticker, many=True)
+        
+        stickers = Sticker.objects.filter(user=request.auth.user)
+            
+        serializer = StickerSerializer(stickers, many=True)
         return Response(serializer.data)
+    
+    def create(self, request):
+        """Handle POST operations
+
+        Returns
+        Response -- JSON serialized game instance
+        """
+        user=request.auth.user
+        finish_type = Finish.objects.get(pk=request.data["finish_type"])
+        sticker_size = Size.objects.get(pk=request.data["sticker_size"])
+
+        sticker = Sticker.objects.create(
+            user=user,
+            name=request.data["name"],
+            image=request.data["image"],
+            finish_type=finish_type,
+            sticker_size=sticker_size,
+            price=request.data["price"]
+        )
+        serializer = StickerSerializer(sticker)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)
+
+    def update(self, request, pk):
+        """Handle PUT requests for a game
+
+        Returns:
+            Response -- Empty body with 204 status code
+        """
+        
+        
+        sticker = Sticker.objects.get(pk=pk)
+        sticker.name=request.data["name"]
+        sticker.image=request.data["image"]
+        sticker.price=request.data["price"]
+        
+        finish_type = Finish.objects.get(pk=request.data["finish_type"])
+        sticker_size = Size.objects.get(pk=request.data["sticker_size"])
+        sticker.finish_type=finish_type
+        sticker.sticker_size=sticker_size
+        sticker.save()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
+    def destroy(self, request, pk):
+
+        sticker = Sticker.objects.get(pk=pk)
+        sticker.delete()
+
+        return Response(None, status=status.HTTP_204_NO_CONTENT)
+
 
 
 class StickerSerializer(serializers.ModelSerializer):
@@ -34,4 +90,4 @@ class StickerSerializer(serializers.ModelSerializer):
     """
     class Meta:
         model = Sticker
-        fields = ('id', 'user', 'name', 'image', 'finish_type', 'sticker_size')
+        fields = ('id', 'user', 'name', 'image', 'finish_type', 'sticker_size', 'price')
