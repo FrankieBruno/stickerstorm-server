@@ -56,8 +56,15 @@ REST_FRAMEWORK = {
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
-    'http://127.0.0.1:3000'
+    'http://127.0.0.1:3000',
+    'https://6502157d74ff8f0008be3e85--sweet-nougat-6290ce.netlify.app/'
 )
+
+CORS_ALLOWED_ORIGINS = [
+    'https://6502157d74ff8f0008be3e85--sweet-nougat-6290ce.netlify.app/'
+]
+    
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
