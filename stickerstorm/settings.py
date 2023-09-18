@@ -57,13 +57,13 @@ REST_FRAMEWORK = {
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:3000',
     'http://127.0.0.1:3000',
-    'https://deploy--stickerstorm.netlify.app/'
+    'https://stickerstorm.netlify.app'
 )
 
 CORS_ALLOWED_ORIGINS = [
-    'https://deploy--stickerstorm.netlify.app/'
+    'https://stickerstorm.netlify.app'
 ]
-    
+
 
 
 MIDDLEWARE = [
